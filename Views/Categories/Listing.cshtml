@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Website.Models.Category>
+
+
+<table id="Categories" class="table">
+    <thead>
+        <tr>
+            @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+            }
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+            }
+            <td id="Col_@item.Id">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @if(User.IsInRole("Admin") || User.IsInRole("Employee"))
+                {
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id" style="font-size: 11px"
+                    data-ajax="true"
+                    data-ajax-method="get"
+                    data-ajax-mode="replace"
+                    data-ajax-update="#Col_@item.Id">Edit</a>
+                <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id" style="font-size: 11px"
+                    data-ajax="true"
+                    data-ajax-method="get"
+                    data-ajax-update="#Categories"
+                    data-ajax-confirm="Are you sure?">Delete</a>
+                }
+                @*<dl class="row" style="float: right; font-size: 11px">
+                    @Html.ActionLink("Favorite", "AddFavoriteCategory", "Categories", new {Id = item.Id}, null)
+                </dl>*@
+                <a>
+                   @*@Html.ActionLink("Favorite", "AddFavoriteCategory", "Categories", new {Id = item.Id}, null)*@
+                   <a href='@Url.Action("AddFavoriteCategory", "Categories", new {Id = item.Id}, null)' class="btn btn-dark" style="float: right; font-size: 11px">Favorite</a>
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

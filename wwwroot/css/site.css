@@ -1,0 +1,135 @@
+/** {
+    font-family: 'Oswald', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}*/
+
+/*@font-face {
+    font-family: 'Permanent Marker';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.google.com/specimen/Permanent+Marker.woff2) format('woff2');
+}*/
+
+/**/
+* {
+    color: skyblue;
+}
+/**/
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+
+    /*background-color: #032e65;*/
+    /*background-color: #752EE0;
+    color: #ED13FE;*/
+    /*color:aliceblue;*/
+    background-image:url(WebsiteBackground.jpeg);
+}
+
+/**/
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.login-form {
+    background: #f1efef;
+    width: 500px;
+    margin: 65px auto;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    box-shadow: 0 2px 25px rgb(0 0 0 / 20%);
+}
+
+.login-form .content {
+    padding: 35px;
+    text-align: center;
+}
+
+.actions {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+}
+
+.login-form .input-field {
+    padding: 11px 16px;
+}
+
+.title-login {
+    align-self: center;
+}
+
+.login-form a.link-forgot {
+    text-decoration: none;
+    color: #747474;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 20px;
+    padding-left: 146px;
+}
+
+.login-form .action {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+}
+
+.login-form .input-field input {
+    font-size: 16px;
+    display: block;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    padding: 10px 1px;
+}
+
+.login-form h1 {
+    padding: 35px 35px 0 35px;
+    font-weight: 300;
+}
+
+.login-form checkbox {
+    padding-left: 50px;
+}
+
+.register-form {
+    background: #f1efef;
+    width: 500px;
+    margin: 65px auto;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    box-shadow: 0 2px 25px rgb(0 0 0 / 20%);
+}
+
+.register-form h1 {
+    padding: 35px 35px 0 187px;
+    font-weight: 300;
+}
+/**/

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Website.Models.Profile>
+
+@{
+    ViewData["Title"] = "List of Profiles";
+}
+
+<h1>List of Profiles</h1>
+
+<p>
+    <br />
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Birthday)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Birthday)
+            </td>*@
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
+                @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
+                <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id" style="font-size: 11px">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

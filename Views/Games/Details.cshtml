@@ -1,0 +1,77 @@
+﻿@model Website.Models.Game
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="~/GameCovers/@Html.DisplayFor(model => model.Picture)" width="220" height="275" />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Platform)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Platform)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Publisher)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Publisher)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+    {
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+    } |
+</div>
+@*@if (User.IsInRole("Admin") || User.IsInRole("Employee") || User.IsInRole("Client"))
+{
+    <dl class="row" style="float: right; font-size: 34px">
+        @Html.ActionLink("BUY", "Purchase", "Games", new {Id = Model.Id}, null)
+    </dl>
+}*@
+<dl class="row" style="float: right; font-size: 34px">
+    @*<a class="btn btn-dark" @Html.ActionLink("BUY", "Purchase", "Games", new {Id = Model.Id}, null)</a>*@
+    <a href='@Url.Action("Purchase", "Games", new {Id = Model.Id}, null)' class="btn btn-dark">BUY</a>
+</dl>

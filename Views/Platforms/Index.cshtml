@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Website.Models.Platform>
+
+@{
+    ViewData["Title"] = "List of Platforms";
+}
+
+<h1>List of Platforms</h1>
+
+<br />
+
+<form asp-action="Create"
+    data-ajax="true"
+    data-ajax-method="post"
+    data-ajax-mode="replace"
+    data-ajax-update="#Platforms"
+    data-ajax-success="Success">
+
+    <input id="inp" type="text" name="NewName"/>
+    <input type="submit" value="Create" class="btn btn-primary" style="font-size: 11px"/>
+</form>
+
+<br />
+
+<partial name="Listing" model="Model"/>
+
+<script>
+    function Success()
+    {
+        $("#inp").val("");
+    }
+</script>

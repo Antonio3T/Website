@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Website.Models.FavoriteCategories>
+
+@{
+    ViewData["Title"] = "Favorite Categories";
+}
+
+@*<h1>Index</h1>*@
+<h1>Favorite Categories</h1>
+
+@*<p>
+    <a asp-action="Create">Add New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Profile)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Profile.Role)
+            </td>*@
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @*@Html.ActionLink("Delete", "Delete", new {  /*id=item.PrimaryKey*/  id = item.CategoryID})*@
+                <a href='@Url.Action("Delete", "FavoriteCategories", new {id = item.CategoryID})' class="btn btn-dark" style="float: right; font-size: 11px">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
